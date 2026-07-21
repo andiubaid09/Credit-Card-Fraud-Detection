@@ -14,3 +14,7 @@ __pycache__/
 # Trained Models
 *.pkl
 *.joblib
+
+# Dataset
+data/*
+!data/.gitkeep
