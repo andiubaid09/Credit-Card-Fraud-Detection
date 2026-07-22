@@ -2,7 +2,7 @@
 
 <p align="center">
 
-![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-Machine%20Learning-orange?logo=scikitlearn)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas)
 ![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?logo=numpy)
@@ -96,6 +96,11 @@ Credit-Card-Fraud-Detection/
 |           ├── Top Feature Decision Tree.png
 |           ├── Top Feature Logistic Regression.png
 │
+|
+├── models/
+|   ├── Decision_Tree_Model.joblib
+|   ├── Logistic_Regression_Model.joblib
+|
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -196,7 +201,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 # 🤖 Model Machine Learning
 
 | Model | Baseline | Class Weight | SMOTE | Tuning | Status |
-|---------|:--------:|:-----:|:------:|:------:|
+|---------|:--------:|:-----:|:------:|:------:| :------:|
 | Logistic Regression | ✅ | ✅ |✅| ✅ | ✅ |
 | Decision Tree | ✅ | ✅ | ✅ |✅| ✅ |
 | Random Forest | ⏳ | ⏳ | ⏳| ⏳ | Coming Soon |
@@ -263,7 +268,7 @@ Model dievaluasi menggunakan:
 ## Decision Tree
 ### Confusion Matrix
 <p align="center">
-<img src="docs/images/Confusion Matrix/cm Decision Tree.png" width="700">
+<img src="docs/images/Confusion Matrix/cm Decision Tree.png" width="550">
 </p>
 
 ### Feature Importance
