@@ -11,10 +11,6 @@ __pycache__/
 # macOS
 .DS_Store
 
-# Trained Models
-*.pkl
-*.joblib
-
 # Dataset
 data/*
 !data/.gitkeep
