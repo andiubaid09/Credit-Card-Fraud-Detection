@@ -79,27 +79,26 @@ Dataset terdiri dari beberapa fitur transaksi, antara lain:
 Credit-Card-Fraud-Detection/
 │
 ├── notebooks/
-│   ├── Logistic Regression.ipynb
-│   ├── Decision Tree.ipynb
-│   ├── Random Forest.ipynb
-│   ├── Support Vector Machine.ipynb
-│   ├── XGBoost.ipynb
-│   ├── LightGBM.ipynb
-│   └── K-Nearest Neighbor.ipynb
+│   ├── 01_Logistic_Tree_CCFD.ipynb
+│   ├── 02_Decision_Tree_CCFD.ipynb
+│   ├── 03_Random_Forest_CCFD.ipynb
 │
 ├── docs/
 │   └── images/
 │       ├── confusion_matrix/
 |           ├── cm Decision Tree.png
 |           ├── cm_logistic_regression.png
+|           ├── cm Random Forest.png 
 │       ├── feature_importance/
 |           ├── Top Feature Decision Tree.png
 |           ├── Top Feature Logistic Regression.png
+|           ├── Top Feature Random Forest.png
 │
 |
 ├── models/
 |   ├── Decision_Tree_Model.joblib
 |   ├── Logistic_Regression_Model.joblib
+|   ├── Random_Forest_Model.joblib
 |
 ├── requirements.txt
 ├── .gitignore
@@ -204,7 +203,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 |---------|:--------:|:-----:|:------:|:------:| :------:|
 | Logistic Regression | ✅ | ✅ |✅| ✅ | ✅ |
 | Decision Tree | ✅ | ✅ | ✅ |✅| ✅ |
-| Random Forest | ⏳ | ⏳ | ⏳| ⏳ | Coming Soon |
+| Random Forest | ✅ | ✅ | ✅| ✅ | ✅ |
 | Support Vector Machine | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | XGBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | LightGBM | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
@@ -245,7 +244,13 @@ Model dievaluasi menggunakan:
 | SMOTE     | 98.65%    | 54%   | 63%   | 58%   | 81.26% |
 | Baseline + GridSearchCV | 99.20% | 71% | 80% | 75% | 94.74% |
 
-
+## Random Forest
+| Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|------|---------:|----------:|-------:|---:|--------:|
+| Baseline | 99% | 77.78%     | 46.67%    | 58% | 99.36% |
+| Class Weight | 98.95% | 84.62% | 36.67% | 51% | 99.64% |
+| SMOTE     | 99%    | 64.71%   | 73.33%   | 69%   | 99.62% |
+| SMOTE + GridSearchCV | 99.20% | 71% | 80% | 75% | 94.74% |
 ---
 
 # 📊 Visualisasi
@@ -275,6 +280,18 @@ Model dievaluasi menggunakan:
 <p align="center">
 <img src="docs/images/Feature Importances/Top Feature Decision Tree.png" width="700">
 </p>
+
+## Random Forest
+### Confusion Matrix
+<p align="center">
+<img src="docs/images/Confusion Matrix/" width="550">
+</p>
+
+### Feature Importance
+<p align="center">
+<img src="docs/images/Feature Importances/" width="700">
+</p>
+
 ---
 
 # 💡 Kesimpulan
