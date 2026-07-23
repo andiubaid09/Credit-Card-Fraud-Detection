@@ -250,7 +250,8 @@ Model dievaluasi menggunakan:
 | Baseline | 99% | 77.78%     | 46.67%    | 58% | 99.36% |
 | Class Weight | 98.95% | 84.62% | 36.67% | 51% | 99.64% |
 | SMOTE     | 99%    | 64.71%   | 73.33%   | 69%   | 99.62% |
-| SMOTE + GridSearchCV | 99.20% | 71% | 80% | 75% | 94.74% |
+| SMOTE + GridSearchCV | 99% | 61.36% | 90% | 73% | 99.60% |
+
 ---
 
 # 📊 Visualisasi
@@ -284,12 +285,12 @@ Model dievaluasi menggunakan:
 ## Random Forest
 ### Confusion Matrix
 <p align="center">
-<img src="docs/images/Confusion Matrix/" width="550">
+<img src="docs/images/Confusion Matrix/cm Random Forest.png" width="550">
 </p>
 
 ### Feature Importance
 <p align="center">
-<img src="docs/images/Feature Importances/" width="700">
+<img src="docs/images/Feature Importances/Top Feature Random Forest.png" width="700">
 </p>
 
 ---
@@ -310,6 +311,12 @@ Berdasarkan eksperimen yang telah dilakukan pada dataset Credit Card Fraud, dipe
 - Model terbaik menggunakan Entropy Criterion, Maximum Depth = 10, dan Minimum Samples Split = 5.
 - Decision Tree menghasilkan keseimbangan yang lebih baik antara Precision dan Recall dibandingkan Logistic Regression
 
+## Random Forest
+- Pada eksperimen yang dilakukan, kombinasi SMOTE + Hyperparameter Tuning menghasilkan performa terbaik untuk algoitma Random Forest
+- Hyperparameter Tuning meningkatkan recall dari 73.33% menjadi 90%, sehingga model mampu mendeteksi hampir seluruh transaksi fraud pada data uji.
+- Meskipun precision menurun dibandingkan model baseline, peningkatan recall menghasilkan F1-Score yang lebih baik 73%
+- Random Forest memperoleh ROC-AUC sebesar 99.60%, menunjukkan kemampuan yang sangat baik dalam membedakan transaksi normal dan fraud.
+
 ## Temuan
 - Secara keseluruhan, hasil eksperimen menunjukkan bahwa setiap algoritma memiliki karakteristik yang berbeda dalam menangani data tidak seimbang. Logistic Regression memperoleh peningkatan performa setelah menggunakan SMOTE, sedangkan Decision Tree mencapai performa terbaik melalui Hyperparameter Tuning tanpa memerlukan oversampling. Oleh karena itu, pemilihan strategi penanganan imbalaced perlu disesuaikan dengan karakteristik masing-masing algoritma
 ---
@@ -318,7 +325,6 @@ Berdasarkan eksperimen yang telah dilakukan pada dataset Credit Card Fraud, dipe
 
 Repository ini akan terus dikembangkan dengan menambahkan berbagai algoritma Machine Learning lainnya.
 
-- [ ] Random Forest
 - [ ] Support Vector Machine
 - [ ] XGBoost
 - [ ] LightGBM
