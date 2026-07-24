@@ -248,18 +248,18 @@ Model dievaluasi menggunakan:
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |------|---------:|----------:|-------:|---:|--------:|
-| Baseline | 98.80% | 58%     | 70%    | 64% | 84.62% |
-| Class Weight | 98.55% | 52% | 47% | 49% | 73.00% |
-| SMOTE     | 98.65%    | 54%   | 63%   | 58%   | 81.26% |
-| Baseline + GridSearchCV | 99.20% | 71% | 80% | 75% | 94.74% |
+| Baseline | 99.75% | 86%     | 100%    | 92% | 99.87% |
+| Class Weight | 99.80% | 88% | 100% | 94% | 99.89% |
+| SMOTE     | 99.60%    | 81%   | 97%   | 88%   | 98.15% |
+| Class Weight + GridSearchCV | 99.90% | 94% | 100% | 97% | 99.95% |
 
 ## Random Forest
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
 |------|---------:|----------:|-------:|---:|--------:|
-| Baseline | 99% | 77.78%     | 46.67%    | 58% | 99.36% |
-| Class Weight | 98.95% | 84.62% | 36.67% | 51% | 99.64% |
-| SMOTE     | 99%    | 64.71%   | 73.33%   | 69%   | 99.62% |
-| SMOTE + GridSearchCV | 99% | 61.36% | 90% | 73% | 99.60% |
+| Baseline | 99.45% | 100%     | 63.33%    | 78% | 99.99% |
+| Class Weight | 99.35% | 100% | 57% | 72% | 99.98% |
+| SMOTE     | 99.80%    | 96.43%   | 90%   | 93%   | 99.98% |
+| SMOTE + GridSearchCV | 99.85% | 93.55% | 97% | 95% | 99.99% |
 
 ## Support Vector Machine
 | Model                | Accuracy | Precision | Recall | F1    | ROC-AUC |
@@ -277,7 +277,7 @@ Model dievaluasi menggunakan:
 ### Confusion Matrix
 
 <p align="center">
-<img src="docs/images/Confusion Matrix/cm_logistic_regression.png" width="550">
+<img src="docs/images/Confusion Matrix/cm Logistic Regression.png" width="550">
 </p>
 
 ---
@@ -334,16 +334,16 @@ Berdasarkan eksperimen yang telah dilakukan pada dataset Credit Card Fraud, dipe
 - Nilai **ROC-AUC sekitar 99.3%** menunjukkan bahwa Logistic Regression memiliki kemampuan yang sangat baik dalam membedakan transaksi normal dan fraud.
 
 ## Decision Tree
-- Decision Tree baseline menunjukkan performa yang lebih baik dibandingkan pendekatan Class Weigh maupun SMOTE
-- Hyperparameter tuning berhasil meningkatkan hampir seluruh metrik evaluasi, terutama Recall (70% -> 80%) dan F1-Score (64% -> 75%).
-- Model terbaik menggunakan Entropy Criterion, Maximum Depth = 10, dan Minimum Samples Split = 5.
-- Decision Tree menghasilkan keseimbangan yang lebih baik antara Precision dan Recall dibandingkan Logistic Regression
+- Decision Tree dengan Class_Weight balanced menunjukkan performa yang lebih baik dibandingkan pendekatan Baseline maupun SMOTE
+- Hyperparameter tuning berhasil meningkatkan hampir seluruh metrik evaluasi, terutama Recall (88% -> 94%) dan F1-Score (94% -> 97%) sambil mempertahankan recall di angka 100%.
+- Model terbaik menggunakan Entropy Criterion, Maximum Depth = 10, Minimum Samples Split = 2 dan minimum Samples Leaf = 1.
+- Decision Tree menghasilkan keseimbangan yang lebih baik antara Precision dan Recall.
 
 ## Random Forest
-- Pada eksperimen yang dilakukan, kombinasi SMOTE + Hyperparameter Tuning menghasilkan performa terbaik untuk algoitma Random Forest
-- Hyperparameter Tuning meningkatkan recall dari 73.33% menjadi 90%, sehingga model mampu mendeteksi hampir seluruh transaksi fraud pada data uji.
-- Meskipun precision menurun dibandingkan model baseline, peningkatan recall menghasilkan F1-Score yang lebih baik 73%
-- Random Forest memperoleh ROC-AUC sebesar 99.60%, menunjukkan kemampuan yang sangat baik dalam membedakan transaksi normal dan fraud.
+- Pada eksperimen yang dilakukan, kombinasi SMOTE + Hyperparameter Tuning menghasilkan performa terbaik untuk algoritma Random Forest
+- Hyperparameter Tuning meningkatkan recall dari 90.00% menjadi 97%, sehingga model mampu mendeteksi hampir seluruh transaksi fraud pada data uji.
+- Meskipun precision menurun dibandingkan model smote tanpa tuning, peningkatan recall menghasilkan F1-Score yang lebih baik yakni 95%
+- Random Forest memperoleh ROC-AUC sebesar 99.99%, menunjukkan kemampuan yang sangat baik dalam membedakan transaksi normal dan fraud.
 
 ## Support Vector Machine
 - Model baseline menghasilkan precision yang sangat tinggi (94.44%), namun hanya mampu mendeteksi 56.67% transaksi fraud.
@@ -355,9 +355,9 @@ Berdasarkan eksperimen yang telah dilakukan pada dataset Credit Card Fraud, dipe
 ## Temuan
 Secara keseluruhan, hasil eksperimen menunjukkan bahwa setiap algoritma memiliki karakteristik yang berbeda dalam menangani data tidak seimbang. 
 
-- Logistic Regression memberikan performa terbaik setelah dikombinasikan dengan SMOTE dan Hyperparameter Tuning, terutama dalam meningkatkan Recall.
-- Decision Tree mencapai performa terbaik melalui Hyperparameter Tuning dengan peningkatan yang signifikan pada F1-Score dan Recall.
-- Random Forest memperoleh hasil terbaik menggunakan kombinasi SMOTE dan Hyperparameter Tuning, sehingga mampu mendeteksi sebagian besar transaksi fraud.
+- Logistic Regression memberikan performa terbaik setelah dikombinasikan dengan SMOTE dan Hyperparameter Tuning, terutama dalam meningkatkan Precision dan F1-Score.
+- Decision Tree mencapai performa terbaik melalui Hyperparameter Tuning dengan peningkatan yang signifikan pada F1-Score dan Precision dengan mempertahankan recall di angka 100%.
+- Random Forest memperoleh hasil terbaik menggunakan kombinasi SMOTE dan Hyperparameter Tuning, sehingga mampu mendeteksi hampir semua transaksi fraud.
 - Support Vector Machine menunjukkan performa terbaik setelah Hyperparameter Tuning pada model Class Weight, menghasilkan keseimbangan yang lebih baik antara precision dan recall.
 
 Hasil tersebut menunjukkan bahwa tidak ada satu pendekatan penanganan imbalanced dataset yang selalu menjadi pilihan terbaik untuk semua algoritma. Oleh karena itu, strategi seperti Class Weight dan SMOTE perlu dipilih sesuai dengan karakteristik masing-masing model.
