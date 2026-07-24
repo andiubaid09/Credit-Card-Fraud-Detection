@@ -317,8 +317,8 @@ Model dievaluasi menggunakan:
 </p>
 
 ### Feature Importance
-<p align="center>
-<img src="docs/images/Feature Importances/Top Feature Support Vector Machine.png" width="700">
+<p align="center">
+<img src="docs/images/Feature Importances/Top Feature Support Vector Machine.png" width="550">
 </p>
 
 ---
