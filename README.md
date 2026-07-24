@@ -82,23 +82,27 @@ Credit-Card-Fraud-Detection/
 │   ├── 01_Logistic_Tree_CCFD.ipynb
 │   ├── 02_Decision_Tree_CCFD.ipynb
 │   ├── 03_Random_Forest_CCFD.ipynb
+|   ├── 04_Support_Vector_Machine.ipynb
 │
 ├── docs/
 │   └── images/
 │       ├── confusion_matrix/
 |           ├── cm Decision Tree.png
+|           ├── cm Random Forest.png
+|           ├── cm Support Vector Machine.png 
 |           ├── cm_logistic_regression.png
-|           ├── cm Random Forest.png 
 │       ├── feature_importance/
 |           ├── Top Feature Decision Tree.png
 |           ├── Top Feature Logistic Regression.png
 |           ├── Top Feature Random Forest.png
+|           ├── Top Feature Support Vector Machine.png
 │
 |
 ├── models/
 |   ├── Decision_Tree_Model.joblib
 |   ├── Logistic_Regression_Model.joblib
 |   ├── Random_Forest_Model.joblib
+|   ├── Support_Vector_Machine.joblib
 |
 ├── requirements.txt
 ├── .gitignore
@@ -252,6 +256,14 @@ Model dievaluasi menggunakan:
 | SMOTE     | 99%    | 64.71%   | 73.33%   | 69%   | 99.62% |
 | SMOTE + GridSearchCV | 99% | 61.36% | 90% | 73% | 99.60% |
 
+## Support Vector Machine
+| Model                | Accuracy | Precision | Recall | F1    | ROC-AUC |
+|----------------------|---------:|----------:|-------:|------:|--------:|
+| Baseline             |          |           |        |       |         |
+| Class Weight         |          |           |        |       |         |
+| SMOTE                |          |           |        |       |         |
+| SMOTE + GridSearchCV |          |           |        |       |         |
+
 ---
 
 # 📊 Visualisasi
@@ -293,6 +305,17 @@ Model dievaluasi menggunakan:
 <img src="docs/images/Feature Importances/Top Feature Random Forest.png" width="700">
 </p>
 
+## Support Vector Machine
+### Confusion Matrix
+<p align="center">
+<img src="docs/images/Confusion Matrix/cm Support Vector Machine.png" width="550">
+</p>
+
+### Feature Importance
+<p align="center>
+<img src="docs/images/Feature Importances/Top Feature Support Vector Machine.png" width="700">
+</p>
+
 ---
 
 # 💡 Kesimpulan
@@ -316,6 +339,9 @@ Berdasarkan eksperimen yang telah dilakukan pada dataset Credit Card Fraud, dipe
 - Hyperparameter Tuning meningkatkan recall dari 73.33% menjadi 90%, sehingga model mampu mendeteksi hampir seluruh transaksi fraud pada data uji.
 - Meskipun precision menurun dibandingkan model baseline, peningkatan recall menghasilkan F1-Score yang lebih baik 73%
 - Random Forest memperoleh ROC-AUC sebesar 99.60%, menunjukkan kemampuan yang sangat baik dalam membedakan transaksi normal dan fraud.
+
+## Support Vector Machine
+- 
 
 ## Temuan
 - Secara keseluruhan, hasil eksperimen menunjukkan bahwa setiap algoritma memiliki karakteristik yang berbeda dalam menangani data tidak seimbang. Logistic Regression memperoleh peningkatan performa setelah menggunakan SMOTE, sedangkan Decision Tree mencapai performa terbaik melalui Hyperparameter Tuning tanpa memerlukan oversampling. Oleh karena itu, pemilihan strategi penanganan imbalaced perlu disesuaikan dengan karakteristik masing-masing algoritma
