@@ -208,10 +208,15 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Logistic Regression | ✅ | ✅ |✅| ✅ | ✅ |
 | Decision Tree | ✅ | ✅ | ✅ |✅| ✅ |
 | Random Forest | ✅ | ✅ | ✅| ✅ | ✅ |
-| Support Vector Machine | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| Support Vector Machine | ✅ | ✅ | ✅ | ✅ | ✅ |
+| K-Nearest Neighbor| ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| AdaBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| Gradient Boosting | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| Extra Trees | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | XGBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | LightGBM | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
-| K-Nearest Neighbor | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| CatBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| Gaussian Naive Bayes | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 
 ---
 
@@ -259,10 +264,10 @@ Model dievaluasi menggunakan:
 ## Support Vector Machine
 | Model                | Accuracy | Precision | Recall | F1    | ROC-AUC |
 |----------------------|---------:|----------:|-------:|------:|--------:|
-| Baseline             |          |           |        |       |         |
-| Class Weight         |          |           |        |       |         |
-| SMOTE                |          |           |        |       |         |
-| SMOTE + GridSearchCV |          |           |        |       |         |
+| Baseline             |  99.30%  |  94.44%   | 56.67% | 71%   | 99.59%  |
+| Class Weight         |  98.40%  |  48.21%   | 90%    | 63%   | 99.61%  |
+| SMOTE                |  98.15%  |  44.26%   | 90%    | 59%   | 99.62%  |
+| Class Weight + GridSearchCV |    99.10%    |    65%     |  86.67%    |   74%   |  99.49%    |
 
 ---
 
@@ -341,23 +346,39 @@ Berdasarkan eksperimen yang telah dilakukan pada dataset Credit Card Fraud, dipe
 - Random Forest memperoleh ROC-AUC sebesar 99.60%, menunjukkan kemampuan yang sangat baik dalam membedakan transaksi normal dan fraud.
 
 ## Support Vector Machine
-- 
+- Model baseline menghasilkan precision yang sangat tinggi (94.44%), namun hanya mampu mendeteksi 56.67% transaksi fraud.
+- Penerapan Class Weight meningkatkan recall menjadi 90% , sehingga model mampu mendeteksi lebih banyak transaksi fraud meskipun precision menurun.
+- Hyperparameter tuning pada model Class Weight menghasilkan keseimbangan performa yang lebih baik dengan accuracy 99.10%, precision 65%, Recall 86.67% dan F1-Score 74%.
+- Meskipun recall sedikit menurun dibandingkan sebelum tuning, peningkatan precision dan F1-Score menunjukkan bahwa model menjadi lebih selektif dalam mendeteksi fraud dengan mengurangi jumlah false positive.
+- Support Vector Machine memperoleh ROC-AUC sebesar 99.49%, menunjukkan kemampuan yang sangat baik dalam membedakan transaksi normal dan transaksi fraud.
 
 ## Temuan
-- Secara keseluruhan, hasil eksperimen menunjukkan bahwa setiap algoritma memiliki karakteristik yang berbeda dalam menangani data tidak seimbang. Logistic Regression memperoleh peningkatan performa setelah menggunakan SMOTE, sedangkan Decision Tree mencapai performa terbaik melalui Hyperparameter Tuning tanpa memerlukan oversampling. Oleh karena itu, pemilihan strategi penanganan imbalaced perlu disesuaikan dengan karakteristik masing-masing algoritma
+Secara keseluruhan, hasil eksperimen menunjukkan bahwa setiap algoritma memiliki karakteristik yang berbeda dalam menangani data tidak seimbang. 
+
+- Logistic Regression memberikan performa terbaik setelah dikombinasikan dengan SMOTE dan Hyperparameter Tuning, terutama dalam meningkatkan Recall.
+- Decision Tree mencapai performa terbaik melalui Hyperparameter Tuning dengan peningkatan yang signifikan pada F1-Score dan Recall.
+- Random Forest memperoleh hasil terbaik menggunakan kombinasi SMOTE dan Hyperparameter Tuning, sehingga mampu mendeteksi sebagian besar transaksi fraud.
+- Support Vector Machine menunjukkan performa terbaik setelah Hyperparameter Tuning pada model Class Weight, menghasilkan keseimbangan yang lebih baik antara precision dan recall.
+
+Hasil tersebut menunjukkan bahwa tidak ada satu pendekatan penanganan imbalanced dataset yang selalu menjadi pilihan terbaik untuk semua algoritma. Oleh karena itu, strategi seperti Class Weight dan SMOTE perlu dipilih sesuai dengan karakteristik masing-masing model.
 ---
 
 # 🚀 Pengembangan Selanjutnya
 
 Repository ini akan terus dikembangkan dengan menambahkan berbagai algoritma Machine Learning lainnya.
 
-- [ ] Support Vector Machine
+- [x] Logistic Regression
+- [x] Decision Tree
+- [x] Random Forest
+- [x] Support Vector Machine
+- [ ] K-Nearest Neighbor
+- [ ] AdaBoost
+- [ ] Gradient Boosting
+- [ ] Extra Trees
 - [ ] XGBoost
 - [ ] LightGBM
-- [ ] K-Nearest Neighbor
-- [ ] Perbandingan seluruh model
-- [ ] ROC Curve Comparison
-- [ ] SHAP Explainability
+- [ ] CatBoost
+- [ ] Gaussien Naive Bayes
 
 ---
 
