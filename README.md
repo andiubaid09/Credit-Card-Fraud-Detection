@@ -83,16 +83,19 @@ Credit-Card-Fraud-Detection/
 │   ├── 02_Decision_Tree_CCFD.ipynb
 │   ├── 03_Random_Forest_CCFD.ipynb
 |   ├── 04_Support_Vector_Machine.ipynb
+|   ├── 05_K_Nearest_Neighbor.ipynb   
 │
 ├── docs/
 │   └── images/
 │       ├── confusion_matrix/
 |           ├── cm Decision Tree.png
+|           ├── cm K-Nearest Neighbor.png
 |           ├── cm Random Forest.png
 |           ├── cm Support Vector Machine.png 
 |           ├── cm_logistic_regression.png
 │       ├── feature_importance/
 |           ├── Top Feature Decision Tree.png
+|           ├── Top Feature K-Nearest_Neighbor.png
 |           ├── Top Feature Logistic Regression.png
 |           ├── Top Feature Random Forest.png
 |           ├── Top Feature Support Vector Machine.png
@@ -100,6 +103,7 @@ Credit-Card-Fraud-Detection/
 |
 ├── models/
 |   ├── Decision_Tree_Model.joblib
+|   ├── K-Nearest_Neighbor.joblib
 |   ├── Logistic_Regression_Model.joblib
 |   ├── Random_Forest_Model.joblib
 |   ├── Support_Vector_Machine.joblib
@@ -209,7 +213,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Decision Tree | ✅ | ✅ | ✅ |✅| ✅ |
 | Random Forest | ✅ | ✅ | ✅| ✅ | ✅ |
 | Support Vector Machine | ✅ | ✅ | ✅ | ✅ | ✅ |
-| K-Nearest Neighbor| ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| K-Nearest Neighbor| ✅ | N/A | ✅ | ✅ | ✅ |
 | AdaBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | Gradient Boosting | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | Extra Trees | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
@@ -269,6 +273,12 @@ Model dievaluasi menggunakan:
 | SMOTE                |  98.15%  |  44.26%   | 90%    | 59%   | 99.62%  |
 | Class Weight + GridSearchCV |    99.10%    |    65%     |  86.67%    |   74%   |  99.49%    |
 
+## K-Nearest Neighbor
+| Model                | Accuracy | Precision | Recall | F1    | ROC-AUC |
+|----------------------|---------:|----------:|-------:|------:|--------:|
+| Baseline             |  98.75%  |  64.71%   | 36.67% | 47%   | 92.70%  |
+| SMOTE                |  97.45%  |  36.71%   | 96.67%    | 53%   | 97.46%  |
+| SMOTE + GridSearchCV |  98.10%    |    43.10%     |  83.33%    |   57%   |  95.82%    |
 ---
 
 # 📊 Visualisasi
@@ -318,7 +328,18 @@ Model dievaluasi menggunakan:
 
 ### Feature Importance
 <p align="center">
-<img src="docs/images/Feature Importances/Top Feature Support Vector Machine.png" width="550">
+<img src="docs/images/Feature Importances/Top Feature Support Vector Machine.png" width="700">
+</p>
+
+## K-Nearest Neighbor
+### Confusion Matrix
+<p align="center">
+<img src="docs/images/Confusion Matrix/cm K-Nearest Neighbor.png" width="550">
+</p>
+
+### Feature Importance
+<p align="center">
+<img src="docs/images/Feature Importances/Top Feature K-Nearest_Neighbor.png" width="700">
 </p>
 
 ---
@@ -352,6 +373,13 @@ Berdasarkan eksperimen yang telah dilakukan pada dataset Credit Card Fraud, dipe
 - Meskipun recall sedikit menurun dibandingkan sebelum tuning, peningkatan precision dan F1-Score menunjukkan bahwa model menjadi lebih selektif dalam mendeteksi fraud dengan mengurangi jumlah false positive.
 - Support Vector Machine memperoleh ROC-AUC sebesar 99.49%, menunjukkan kemampuan yang sangat baik dalam membedakan transaksi normal dan transaksi fraud.
 
+## K-Nearest Neighbor
+- Model baseline menghasilkan precision yang cukup tinggi (64.71%), namun recall hanya mencapai 36.67%, sehingga sebagian besar transaksi fraud tidak berhasil terdeteksi.
+- Penerapan SMOTE meningkatkan recall secara signifikan menjadi 96.67%, menunjukkan bahwa oversampling efektif dalam membantu KNN mengenali kelas minoritas.
+- Hyperparameter tuning menghasilkan peningkatan precision menjadi 43.10% dan F1-Score menjadi 57%, namun recall menurun menjadi 83.33%.
+- Berdasarkan hasil eksperimen, proses hyperparameter tuning belum mampu mempertahankan recall setinggi model SMOTE baseline. Hal ini menunjukkan bahwa peningkatan precision pada KNN masih disertai trade-off berupa penurunan kemampuan mendeteksi transaksi fraud.
+- KNN memperoleh ROC-AUC sebesar 95.82% yang menunjukkan kemampuan klasifikasi yang baik, meskipun masih berada di bawah beberapa algoritma lain yang telah diuji.
+
 ## Temuan
 Secara keseluruhan, hasil eksperimen menunjukkan bahwa setiap algoritma memiliki karakteristik yang berbeda dalam menangani data tidak seimbang. 
 
@@ -359,6 +387,7 @@ Secara keseluruhan, hasil eksperimen menunjukkan bahwa setiap algoritma memiliki
 - Decision Tree mencapai performa terbaik melalui Hyperparameter Tuning dengan peningkatan yang signifikan pada F1-Score dan Precision dengan mempertahankan recall di angka 100%.
 - Random Forest memperoleh hasil terbaik menggunakan kombinasi SMOTE dan Hyperparameter Tuning, sehingga mampu mendeteksi hampir semua transaksi fraud.
 - Support Vector Machine menunjukkan performa terbaik setelah Hyperparameter Tuning pada model Class Weight, menghasilkan keseimbangan yang lebih baik antara precision dan recall.
+- K-Nearest Neighbor menunjukkan peningkatan recall yang sangat besar setelah menggunakan SMOTE. Hyperparameter tuning berhasil meningkatkan precision dan F1-Score. Namun belum mampu mempertahankan recall setinggi SMOTE baseline. Hal ini menunjukkan adanya trade-off antara precision dan recall pada KNN.
 
 Hasil tersebut menunjukkan bahwa tidak ada satu pendekatan penanganan imbalanced dataset yang selalu menjadi pilihan terbaik untuk semua algoritma. Oleh karena itu, strategi seperti Class Weight dan SMOTE perlu dipilih sesuai dengan karakteristik masing-masing model.
 ---
@@ -371,7 +400,7 @@ Repository ini akan terus dikembangkan dengan menambahkan berbagai algoritma Mac
 - [x] Decision Tree
 - [x] Random Forest
 - [x] Support Vector Machine
-- [ ] K-Nearest Neighbor
+- [x] K-Nearest Neighbor
 - [ ] AdaBoost
 - [ ] Gradient Boosting
 - [ ] Extra Trees
