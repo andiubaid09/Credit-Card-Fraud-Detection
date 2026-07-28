@@ -1,4 +1,14 @@
 # 📈 Logistic Regression
+| Item | Value |
+|------|-------|
+| Algorithm | Logistic Regression |
+| Problem | Binary Classification |
+| Dataset | Credit Card Fraud Detection |
+| Samples | 10,000 |
+| Features | 8 |
+| Imbalanced Handling | Class Weight, SMOTE |
+| Hyperparameter Tuning | GridSearchCV (CV=5) |
+| Best Model | SMOTE + GridSearchCV |
 
 ## 📖 Deskripsi
 
@@ -103,7 +113,16 @@ Sehingga dilakukan tiga pendekatan berbeda.
 
 # 🎯 Hyperparameter Terbaik
 
-Hyperparameter diperoleh menggunakan **GridSearchCV**.
+Hyperparameter diperoleh menggunakan **GridSearchCV** menggunakan 5-fold Cross Validation. Parameter yang diuji:
+
+Parameter yang diuji:
+
+| Parameter | Candidate |
+|-----------|-----------|
+| penalty | l1, l2 |
+| C | 0.01, 0.1, 1, 10, 100 |
+| solver | liblinear, lbgfs, newton-cg |
+| max_iter | 1000, 2000 |
 
 | Parameter | Nilai |
 |------------|--------|
@@ -204,4 +223,4 @@ Berdasarkan seluruh eksperimen yang dilakukan, dapat disimpulkan bahwa:
 - Hyperparameter tuning memberikan peningkatan performa meskipun tidak terlalu signifikan.
 - Model terbaik pada eksperimen ini adalah **SMOTE + GridSearchCV**, dengan Accuracy **96.20%**, Recall **100%**, F1-Score **44%**, dan ROC-AUC **99.32%**.
 
-Walaupun precision masih relatif rendah, model ini berhasil mendeteksi seluruh transaksi fraud pada data uji, sehingga lebih sesuai apabila tujuan utama adalah meminimalkan kasus fraud yang terlewat (*false negative*).
+Model Logistic Regression menunjukkan bahwa pendekatan linear masih mampu memberikan performa yang kompetitif pada dataset Credit Card Fraud Detection. Meskipun precision relatif rendah setelah penanganan imbalanced, model berhasil mendeteksi seluruh transaksi fraud pada data uji sehingga cocok digunakan sebagai baseline yang kuat untuk dibandingkan dengan algoritma lain di repository ini. Walaupun precision masih relatif rendah, model ini berhasil mendeteksi seluruh transaksi fraud pada data uji, sehingga lebih sesuai apabila tujuan utama adalah meminimalkan kasus fraud yang terlewat (*false negative*).
