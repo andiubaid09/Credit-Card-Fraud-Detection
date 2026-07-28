@@ -6,7 +6,7 @@
 | Problem | Binary Classification |
 | Dataset | Credit Card Fraud Detection |
 | Samples | 10,000 |
-| Features | 8 |
+| Features | 10 |
 | Imbalanced Handling | Class Weight, SMOTE |
 | Hyperparameter Tuning | GridSearchCV (5-Fold CV) |
 | Best Model | SMOTE + GridSearchCV |
