@@ -1,4 +1,5 @@
 # 📈 Logistic Regression
+
 | Item | Value |
 |------|-------|
 | Algorithm | Logistic Regression |
@@ -7,125 +8,58 @@
 | Samples | 10,000 |
 | Features | 8 |
 | Imbalanced Handling | Class Weight, SMOTE |
-| Hyperparameter Tuning | GridSearchCV (CV=5) |
+| Hyperparameter Tuning | GridSearchCV (5-Fold CV) |
 | Best Model | SMOTE + GridSearchCV |
 
-## 📖 Deskripsi
+---
 
-Logistic Regression merupakan salah satu algoritma klasifikasi linear yang digunakan untuk memprediksi probabilitas suatu data termasuk ke dalam kelas tertentu. Pada penelitian ini, Logistic Regression digunakan sebagai **baseline model** karena memiliki interpretabilitas yang tinggi, proses pelatihan yang cepat, serta sering dijadikan acuan dalam permasalahan klasifikasi biner seperti deteksi fraud.
+# 📖 Deskripsi
+
+Logistic Regression merupakan algoritma klasifikasi linear yang digunakan untuk memprediksi probabilitas suatu observasi termasuk ke dalam salah satu dari dua kelas. Pada proyek ini, Logistic Regression digunakan sebagai **baseline model** karena memiliki interpretabilitas yang tinggi, proses pelatihan yang cepat, serta sering dijadikan acuan dalam permasalahan klasifikasi biner seperti deteksi transaksi fraud.
 
 Seluruh eksperimen dilakukan menggunakan workflow yang konsisten sehingga hasilnya dapat dibandingkan secara objektif dengan algoritma Machine Learning lainnya.
 
 ---
 
-# ⚙️ Workflow
+# 📚 Dokumentasi Pendukung
 
-```
-Dataset
-    │
-    ▼
-Feature Engineering
-(Cyclical Encoding)
-    │
-    ▼
-Train-Test Split
-(Stratify)
-    │
-    ▼
-Data Preprocessing
-(StandardScaler)
-    │
-    ▼
-Baseline Model
-    │
-    ▼
-Handle Imbalanced Dataset
-├── Class Weight
-└── SMOTE
-    │
-    ▼
-Hyperparameter Tuning
-(GridSearchCV)
-    │
-    ▼
-Model Evaluation
-```
+Beberapa tahapan umum pada seluruh eksperimen dijelaskan pada dokumentasi berikut.
+
+- 📂 [Dataset](/docs/results/dataset.md)
+- ⚙️ [Methodology](/docs/results/methodolgy.md)
+- 📊 [Evaluation Metrics](/docs/results/evaluation.md)
+
+Dokumentasi tersebut mencakup:
+
+- Dataset dan distribusi kelas
+- Feature Engineering
+- Data Preprocessing
+- Train-Test Split
+- Handling Imbalanced Dataset
+- Evaluation Metrics
+- Experiment Workflow
 
 ---
 
-# 🔄 Preprocessing
+# 🔍 Hyperparameter Search
 
-Tahapan preprocessing yang diterapkan pada Logistic Regression adalah sebagai berikut.
+Hyperparameter tuning dilakukan menggunakan **GridSearchCV** dengan **5-Fold Cross Validation**.
 
-### Feature Engineering
-
-Fitur `transaction_hour` diubah menggunakan **Cyclical Encoding** menjadi dua fitur baru.
-
-- hour_sin
-- hour_cos
-
-Transformasi ini dilakukan karena waktu bersifat siklik, sehingga pukul **23.00** dan **00.00** berada berdekatan.
-
----
-
-### StandardScaler
-
-Scaling hanya diterapkan pada fitur numerik.
-
-| Feature |
-|----------|
-| Amount |
-| Device Trust Score |
-| Velocity Last 24 Hours |
-| Cardholder Age |
-
-Sedangkan fitur biner seperti `foreign_transaction` dan `location_mismatch` tidak dilakukan scaling.
-
----
-
-### Train-Test Split
-
-| Parameter | Nilai |
-|-----------|-------|
-| Train Size | 80% |
-| Test Size | 20% |
-| Stratify | Yes |
-| Random State | 42 |
-
----
-
-# ⚖️ Penanganan Imbalanced Dataset
-
-Dataset memiliki distribusi kelas:
-
-| Kelas | Jumlah |
-|-------|--------|
-| Normal | 9.849 |
-| Fraud | 151 |
-
-Sehingga dilakukan tiga pendekatan berbeda.
-
-- Baseline
-- Class Weight (`balanced`)
-- SMOTE
-
----
-
-# 🎯 Hyperparameter Terbaik
-
-Hyperparameter diperoleh menggunakan **GridSearchCV** menggunakan 5-fold Cross Validation. Parameter yang diuji:
-
-Parameter yang diuji:
+### Parameter yang diuji
 
 | Parameter | Candidate |
 |-----------|-----------|
 | penalty | l1, l2 |
 | C | 0.01, 0.1, 1, 10, 100 |
-| solver | liblinear, lbgfs, newton-cg |
+| solver | liblinear, lbfgs, newton-cg |
 | max_iter | 1000, 2000 |
 
-| Parameter | Nilai |
-|------------|--------|
+---
+
+## 🎯 Best Hyperparameter
+
+| Parameter | Value |
+|-----------|-------|
 | Penalty | l2 |
 | Solver | liblinear |
 | C | 10 |
@@ -164,27 +98,19 @@ Parameter yang diuji:
 
 ## Baseline
 
-Model Logistic Regression tanpa penanganan imbalance menghasilkan akurasi yang sangat tinggi (98.95%). Namun, nilai tersebut kurang merepresentasikan kemampuan model dalam mendeteksi transaksi fraud karena dataset didominasi oleh transaksi normal.
-
-Model hanya mampu mendeteksi sekitar **50% transaksi fraud** dengan precision sebesar **71%**, yang menunjukkan bahwa prediksi fraud relatif akurat tetapi masih banyak kasus fraud yang terlewat.
+Model baseline menghasilkan akurasi yang tinggi (**98.95%**), namun hanya mampu mendeteksi sekitar **50%** transaksi fraud. Hal ini menunjukkan bahwa Accuracy saja kurang cukup untuk mengevaluasi model pada dataset yang tidak seimbang.
 
 ---
 
 ## Class Weight
 
-Pendekatan `class_weight='balanced'` meningkatkan recall menjadi **100%**, sehingga seluruh transaksi fraud berhasil dideteksi.
-
-Namun peningkatan recall tersebut diikuti penurunan precision menjadi **24%**, yang berarti jumlah false positive meningkat secara signifikan.
+Pendekatan `class_weight='balanced'` meningkatkan Recall menjadi **100%**, sehingga seluruh transaksi fraud berhasil dideteksi. Namun peningkatan tersebut menyebabkan Precision turun menjadi **24%**, yang menunjukkan meningkatnya jumlah *false positive*.
 
 ---
 
 ## SMOTE
 
-SMOTE menghasilkan performa yang lebih seimbang dibandingkan Class Weight.
-
-Recall tetap mencapai **100%**, sedangkan precision meningkat menjadi **27%**.
-
-Hal ini menunjukkan bahwa oversampling sintetis membantu model mempelajari pola transaksi fraud dengan lebih baik.
+SMOTE menghasilkan keseimbangan performa yang lebih baik dibandingkan Class Weight. Recall tetap mencapai **100%**, sedangkan Precision meningkat menjadi **27%**. Hal ini menunjukkan bahwa oversampling sintetis membantu model mempelajari pola transaksi fraud dengan lebih efektif.
 
 ---
 
@@ -192,25 +118,26 @@ Hal ini menunjukkan bahwa oversampling sintetis membantu model mempelajari pola 
 
 Hyperparameter tuning menggunakan GridSearchCV memberikan peningkatan kecil dibandingkan model SMOTE.
 
-Perubahan yang diperoleh meliputi:
+Perubahan performa meliputi:
 
-- Accuracy meningkat dari **96.00% menjadi 96.20%**
-- Precision meningkat dari **27% menjadi 28%**
-- F1-Score meningkat dari **43% menjadi 44%**
+- Accuracy meningkat dari **96.00%** menjadi **96.20%**
+- Precision meningkat dari **27%** menjadi **28%**
+- F1-Score meningkat dari **43%** menjadi **44%**
+- Recall tetap berada pada **100%**
 
-Sementara nilai Recall tetap berada pada **100%**, sehingga seluruh transaksi fraud pada data uji berhasil dideteksi.
+Walaupun peningkatannya relatif kecil, hasil tuning menunjukkan bahwa optimasi parameter mampu meningkatkan performa model tanpa mengurangi kemampuan mendeteksi transaksi fraud.
 
 ---
 
 # 💡 Interpretasi Feature Coefficients
 
-Karena Logistic Regression merupakan model linear, setiap koefisien menunjukkan besar pengaruh suatu fitur terhadap peluang transaksi diklasifikasikan sebagai fraud.
+Logistic Regression merupakan model linear sehingga setiap koefisien menunjukkan kontribusi masing-masing fitur terhadap probabilitas suatu transaksi diklasifikasikan sebagai fraud.
 
-- Koefisien positif menunjukkan bahwa peningkatan nilai fitur meningkatkan probabilitas fraud.
-- Koefisien negatif menunjukkan bahwa peningkatan nilai fitur menurunkan probabilitas fraud.
-- Semakin besar nilai absolut koefisien, semakin besar pengaruh fitur terhadap prediksi model.
+- Koefisien positif meningkatkan probabilitas transaksi diprediksi sebagai fraud.
+- Koefisien negatif menurunkan probabilitas transaksi diprediksi sebagai fraud.
+- Semakin besar nilai absolut koefisien, semakin besar pengaruh fitur terhadap keputusan model.
 
-Visualisasi Feature Coefficients memberikan gambaran mengenai fitur yang paling berkontribusi dalam proses klasifikasi.
+Visualisasi Feature Coefficients membantu mengidentifikasi fitur yang paling berkontribusi dalam proses klasifikasi.
 
 ---
 
@@ -218,9 +145,9 @@ Visualisasi Feature Coefficients memberikan gambaran mengenai fitur yang paling 
 
 Berdasarkan seluruh eksperimen yang dilakukan, dapat disimpulkan bahwa:
 
-- Logistic Regression mampu menjadi baseline yang kuat untuk permasalahan Credit Card Fraud Detection.
-- Penanganan dataset tidak seimbang menggunakan **SMOTE** meningkatkan kemampuan model dalam mendeteksi transaksi fraud dibandingkan model baseline.
-- Hyperparameter tuning memberikan peningkatan performa meskipun tidak terlalu signifikan.
-- Model terbaik pada eksperimen ini adalah **SMOTE + GridSearchCV**, dengan Accuracy **96.20%**, Recall **100%**, F1-Score **44%**, dan ROC-AUC **99.32%**.
+- Logistic Regression memberikan performa baseline yang kuat untuk permasalahan Credit Card Fraud Detection.
+- Penanganan data tidak seimbang menggunakan **SMOTE** secara signifikan meningkatkan kemampuan model dalam mendeteksi transaksi fraud.
+- Hyperparameter tuning memberikan peningkatan performa meskipun tidak terlalu besar.
+- Model terbaik pada eksperimen ini adalah **SMOTE + GridSearchCV**, dengan Accuracy **96.20%**, Precision **28%**, Recall **100%**, F1-Score **44%**, dan ROC-AUC **99.32%**.
 
-Model Logistic Regression menunjukkan bahwa pendekatan linear masih mampu memberikan performa yang kompetitif pada dataset Credit Card Fraud Detection. Meskipun precision relatif rendah setelah penanganan imbalanced, model berhasil mendeteksi seluruh transaksi fraud pada data uji sehingga cocok digunakan sebagai baseline yang kuat untuk dibandingkan dengan algoritma lain di repository ini. Walaupun precision masih relatif rendah, model ini berhasil mendeteksi seluruh transaksi fraud pada data uji, sehingga lebih sesuai apabila tujuan utama adalah meminimalkan kasus fraud yang terlewat (*false negative*).
+Secara keseluruhan, Logistic Regression menunjukkan bahwa model linear masih mampu memberikan performa yang kompetitif pada dataset Credit Card Fraud Detection. Meskipun Precision relatif rendah setelah penanganan data tidak seimbang, model berhasil mendeteksi seluruh transaksi fraud pada data uji sehingga sangat sesuai apabila prioritas utama adalah meminimalkan *false negative*.
