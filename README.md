@@ -204,7 +204,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Pendekatan | Status |
 |------------|:------:|
 | Baseline | ✅ |
-| Class Weight | ✅* |
+| Class Weight | ✅ |
 | SMOTE | ✅ |
 
 > **Catatan:** Tidak semua algoritma mendukung parameter `class_weight`, misalnya K-Nearest Neighbor.
@@ -265,7 +265,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | 🌳 Decision Tree | [Lihat Dokumentasi](docs/results/Decision_Tree.md) |
 | 🌲 Random Forest | [Lihat Dokumentasi](docs/results/Random_Forest.md) |
 | 🔵 Support Vector Machine | [Lihat Dokumentasi](docs/results/Support_Vector_Machine.md) |
-| 👥 K-Nearest Neighbor | [Lihat Dokumentasi](results/K_Nearest_Neighbor.md) |
+| 👥 K-Nearest Neighbor | [Lihat Dokumentasi](docs/results/K-Nearest_Neighbor) |
 
 ---
 
