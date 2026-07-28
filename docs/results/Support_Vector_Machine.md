@@ -86,6 +86,14 @@ Hyperparameter tuning dilakukan menggunakan **GridSearchCV** dengan **5-Fold Cro
 
 ---
 
+# 📌 Feature Importance
+
+<p align="center">
+<img src="../images/Feature Importances/Top Feature Support Vector Machine.png" width="700">
+</p>
+
+---
+
 # 🔍 Analisis
 
 ## Baseline
