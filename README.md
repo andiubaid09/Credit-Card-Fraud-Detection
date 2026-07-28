@@ -51,15 +51,15 @@ Dengan pendekatan tersebut, setiap algoritma dapat dibandingkan secara objektif 
 
 # 📑 Daftar Isi
 
-- Dataset
-- Struktur Repository
-- Workflow Machine Learning
-- Preprocessing
-- Penanganan Imbalanced Dataset
-- Model Machine Learning
-- Ringkasan Hasil
-- Dokumentasi
-- Pengembangan Selanjutnya
+- [Dataset](#-dataset)
+- [Struktur Repository](#-struktur-repository)
+- [Workflow Machine Learning](#️-workflow-machine-learning)
+- [Preprocessing](#-preprocessing)
+- [Penanganan Imbalanced Dataset](#️-penanganan-imbalanced-dataset)
+- [Model Machine Learning](#-model-machine-learning)
+- [Ringkasan Hasil](#-ringkasan-hasil)
+- [Dokumentasi](#-dokumentasi)
+- [Pengembangan Selanjutnya](#-pengembangan-selanjutnya)
 
 ---
 
