@@ -97,12 +97,14 @@ Credit-Card-Fraud-Detection/
 ├── docs/
 |   ├── images/
 │       ├── Confusion Matrix/
+|           ├── cm AdaBoost.png
 |           ├── cm Decision Tree.png
 |           ├── cm K-Nearest Neighbor.png
 |           ├── cm Logistic Regression.png
 |           ├── cm Random Forest.png
 |           └── cm Support Vector Machine.png
 │       ├── Feature Importances/
+|           ├── Top Feature AdaBoost.png
 |           ├── Top Feature Decision Tree.png
 |           ├── Top Feature K-Nearest Neighbor.png
 |           ├── Top Feature Logistic Regression.png
@@ -121,6 +123,7 @@ Credit-Card-Fraud-Detection/
 │       └── evaluation.md
 │
 ├── models/
+|   ├── AdaBoost_Model.joblib
 │   ├── Decision_Tree_Model.joblib
 │   ├── K-Nearest_Neighbor.joblib
 │   ├── Logistic_Regression_Model.joblib
@@ -132,7 +135,8 @@ Credit-Card-Fraud-Detection/
 │   ├── 02_Decision_Tree_CCFD.ipynb
 │   ├── 03_Random_Forest_CCFD.ipynb
 │   ├── 04_Support_Vector_Machine.ipynb
-│   └── 05_K-Nearest_Neighbor.ipynb
+│   ├── 05_K-Nearest_Neighbor.ipynb
+|   └── 06.AdaBoost_CCFD.ipynb 
 │
 ├── requirements.txt
 ├── README.md
@@ -144,7 +148,7 @@ Credit-Card-Fraud-Detection/
 # ⚙️ Workflow Machine Learning
 
 ```
-Dataset
+   Dataset
       │
       ▼
 Feature Engineering
@@ -207,7 +211,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Class Weight | ✅ |
 | SMOTE | ✅ |
 
-> **Catatan:** Tidak semua algoritma mendukung parameter `class_weight`, misalnya K-Nearest Neighbor.
+> **Catatan:** Tidak semua algoritma mendukung parameter `class_weight`, misalnya K-Nearest Neighbor, AdaBoost.
 
 ---
 
@@ -220,7 +224,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Random Forest | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Random_Forest.md) |
 | Support Vector Machine | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Support_Vector_Machine.md) |
 | K-Nearest Neighbor | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/K-Nearest_Neighbor) |
-| AdaBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| AdaBoost | ✅ | N/A | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/AdaBoost.md)
 | Gradient Boosting | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | Extra Trees | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | XGBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
@@ -240,6 +244,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Random Forest | SMOTE + GridSearchCV | 99.85% | 93.55% | 97% | 95% | 99.99% |
 | Support Vector Machine | Class Weight + GridSearchCV | 99.10% | 65% | 86.67% | 74% | 99.49% |
 | K-Nearest Neighbor | SMOTE + GridSearchCV | 98.10% | 43.10% | 83.33% | 57% | 95.82% |
+| AdaBoost           | Baseline + GridSearchCV | 100% | 100% | 100% | 100% | 100% |
 
 > Dokumentasi lengkap setiap eksperimen dapat dilihat pada folder **results/**.
 
@@ -266,6 +271,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | 🌲 Random Forest | [Lihat Dokumentasi](docs/results/Random_Forest.md) |
 | 🔵 Support Vector Machine | [Lihat Dokumentasi](docs/results/Support_Vector_Machine.md) |
 | 👥 K-Nearest Neighbor | [Lihat Dokumentasi](docs/results/K-Nearest_Neighbor) |
+| ⚡ AdaBoost  | [Lihat Dokumetasi](docs/results/AdaBoost.md)|
 
 ---
 
@@ -273,7 +279,6 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 
 Repository ini akan terus dikembangkan dengan menambahkan beberapa algoritma Machine Learning lainnya.
 
-- [ ] AdaBoost 
 - [ ] Gradient Boosting
 - [ ] Extra Trees
 - [ ] XGBoost
