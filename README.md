@@ -223,7 +223,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Decision Tree | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Decision_Tree.md) |
 | Random Forest | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Random_Forest.md) |
 | Support Vector Machine | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Support_Vector_Machine.md) |
-| K-Nearest Neighbor | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/K-Nearest_Neighbor) |
+| K-Nearest Neighbor | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/K-Nearest_Neighbor.md) |
 | AdaBoost | ✅ | N/A | ✅ | ✅ |  📄 [Lihat Dokumentasi](docs/results/AdaBoost.md)|
 | Gradient Boosting | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | Extra Trees | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
