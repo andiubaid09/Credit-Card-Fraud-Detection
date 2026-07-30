@@ -26,7 +26,7 @@ Pada proyek ini, SVM dievaluasi menggunakan beberapa strategi penanganan data ti
 Beberapa tahapan umum pada seluruh eksperimen dijelaskan pada dokumentasi berikut.
 
 - 📂 [Dataset](./dataset.md)
-- ⚙️ [Methodology](methodology.md)
+- ⚙️ [Methodology](methodolgy.md)
 - 📊 [Evaluation Metrics](evaluation.md)
 
 Dokumentasi tersebut mencakup:

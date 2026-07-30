@@ -26,7 +26,7 @@ Pada proyek ini, Decision Tree dievaluasi menggunakan beberapa strategi penangan
 Beberapa tahapan umum pada seluruh eksperimen dijelaskan pada dokumentasi berikut.
 
 - 📂 [Dataset](/docs/results/dataset.md)
-- ⚙️ [Methodology](/docs/results/dataset.md)
+- ⚙️ [Methodology](methodolgy.md)
 - 📊 [Evaluation Metrics](/docs/results/evaluation.md)
 
 Dokumentasi tersebut mencakup:
