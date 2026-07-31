@@ -229,7 +229,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Support Vector Machine | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Support_Vector_Machine.md) |
 | K-Nearest Neighbor | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/K-Nearest_Neighbor.md) |
 | AdaBoost | ✅ | N/A | ✅ | ✅ |  📄 [Lihat Dokumentasi](docs/results/AdaBoost.md)|
-| Gradient Boosting | ✅ | N/A | ✅ | ✅ | [Lihat Dokumentasi](docs/results/Gradient_Boosting.md) |
+| Gradient Boosting | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Gradient_Boosting.md) |
 | Extra Trees | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | XGBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | LightBGM | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
