@@ -104,7 +104,8 @@ Credit-Card-Fraud-Detection/
 |           ├── cm K-Nearest Neighbor.png
 |           ├── cm Logistic Regression.png
 |           ├── cm Random Forest.png
-|           └── cm Support Vector Machine.png
+|           ├── cm Support Vector Machine.png
+|           └── cm XGBoost.png
 │       ├── Feature Importances/
 |           ├── Top Feature AdaBoost.png
 |           ├── Top Feature Decision Tree.png
@@ -113,7 +114,9 @@ Credit-Card-Fraud-Detection/
 |           ├── Top Feature K-Nearest Neighbor.png
 |           ├── Top Feature Logistic Regression.png
 |           ├── Top Feature Random Forest.png
-|           └── Top Feature Support Vector Machine.png
+|           ├── Top Feature Support Vector Machine.png
+|           └── Top Feature XGBoost.png
+|
 │   ├── results/
 |       ├── AdaBoost.md
 |       ├── dataset.md
@@ -126,6 +129,7 @@ Credit-Card-Fraud-Detection/
 |       ├── methodolgy.md
 |       ├── Random_Forest.md
 |       ├── Support_Vector_Machine.md
+|       └── XGBoost.md
 │
 ├── models/
 |   ├── AdaBoost_Model.joblib
@@ -135,7 +139,8 @@ Credit-Card-Fraud-Detection/
 │   ├── K-Nearest_Neighbor.joblib
 │   ├── Logistic_Regression_Model.joblib
 │   ├── Random_Forest_Model.joblib
-│   └── Support_Vector_Machine.joblib
+│   ├── Support_Vector_Machine.joblib
+|   └── XGBoost_model.joblib
 |
 ├── notebooks/
 │   ├── 01_Logistic_Regression_CCFD.ipynb
@@ -145,7 +150,8 @@ Credit-Card-Fraud-Detection/
 │   ├── 05_K-Nearest_Neighbor.ipynb
 |   ├── 06_AdaBoost_CCFD.ipynb
 |   ├── 07_Gradient_Boosting_CCFD.ipynb
-|   └── 08_Extra_Trees_CCFD.ipynb
+|   ├── 08_Extra_Trees_CCFD.ipynb
+|   └── 09_XGBoost_CCFD.ipynb
 │
 ├── requirements.txt
 ├── README.md
@@ -235,8 +241,8 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | K-Nearest Neighbor | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/K-Nearest_Neighbor.md) |
 | AdaBoost | ✅ | N/A | ✅ | ✅ |  📄 [Lihat Dokumentasi](docs/results/AdaBoost.md)|
 | Gradient Boosting | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Gradient_Boosting.md) |
-| Extra Trees | ✅ | ✅ | ✅ | ✅ | 📄[Lihat Dokumentasi](docs/results/Extra%20Trees.md) |
-| XGBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| Extra Trees | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Extra%20Trees.md) |
+| XGBoost | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/XGBoost.md) |
 | LightBGM | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | CatBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | Gaussien Naive Bayes | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
@@ -256,6 +262,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | AdaBoost           | Baseline + GridSearchCV | 100% | 100% | 100% | 100% | 100% |
 | Gradient Boosting  | SMOTE + GridSearchCV    | 99% | 93.75% | 100% | 97% | 99% |
 | Extra Trees        | SMOTE + GridSearchCV    | 99.55% | 80.00% | 93.33% | 86% | 99.93% |
+| XGBoost            | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
 
 > Dokumentasi lengkap setiap eksperimen dapat dilihat pada folder **results/**.
 
@@ -285,6 +292,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | 🚀 AdaBoost  | [Lihat Dokumentasi](docs/results/AdaBoost.md)|
 | 🚂 Gradient Boosting | [Lihat Dokumentasi](docs/results/Gradient_Boosting.md) |
 | 🌿 Extra Trees | [Lihat Dokumentasi](docs/results/Extra%20Trees.md)|
+| ⚡ XGBoost     | [Lihat Dokumentasi](docs/results/XGBoost.md) |
 
 ---
 
@@ -292,7 +300,6 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 
 Repository ini akan terus dikembangkan dengan menambahkan beberapa algoritma Machine Learning lainnya.
 
-- [ ] XGBoost
 - [ ] LightBGM
 - [ ] CatBoost
 - [ ] Gaussien Naive Bayes
