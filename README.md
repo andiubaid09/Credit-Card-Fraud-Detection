@@ -98,6 +98,7 @@ Credit-Card-Fraud-Detection/
 |   ├── images/
 │       ├── Confusion Matrix/
 |           ├── cm AdaBoost.png
+|           ├── cm CatBoost.png
 |           ├── cm Decision Tree.png
 |           ├── cm Extra Trees.png
 |           ├── cm Gradient Boosting.png
@@ -109,6 +110,7 @@ Credit-Card-Fraud-Detection/
 |           └── cm XGBoost.png
 │       ├── Feature Importances/
 |           ├── Top Feature AdaBoost.png
+|           ├── Top Feature CatBoost.png
 |           ├── Top Feature Decision Tree.png
 |           ├── Top Feature Extra Trees.png
 |           ├── Top Feature Gradient Boosting.png
@@ -121,6 +123,7 @@ Credit-Card-Fraud-Detection/
 |
 │   ├── results/
 |       ├── AdaBoost.md
+|       ├── CatBosst.md
 |       ├── dataset.md
 |       ├── Decision_Tree.md
 |       ├── evaluation.md
@@ -136,6 +139,7 @@ Credit-Card-Fraud-Detection/
 │
 ├── models/
 |   ├── AdaBoost_Model.joblib
+|   ├── Catboost_model.joblib
 │   ├── Decision_Tree_Model.joblib
 |   ├── Extra_Trees_Model.joblib
 |   ├── Gradient_Boosting_Model.joblib
@@ -156,7 +160,8 @@ Credit-Card-Fraud-Detection/
 |   ├── 07_Gradient_Boosting_CCFD.ipynb
 |   ├── 08_Extra_Trees_CCFD.ipynb
 |   ├── 09_XGBoost_CCFD.ipynb
-|   └── 10_LightGBM_CCFD.ipynb
+|   ├── 10_LightGBM_CCFD.ipynb
+|   └── 11_CatBoost_CCFD.ipynb
 │
 ├── requirements.txt
 ├── README.md
@@ -249,7 +254,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Extra Trees | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Extra%20Trees.md) |
 | XGBoost | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/XGBoost.md) |
 | LightBGM | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/LightGBM.md) |
-| CatBoost | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| CatBoost | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Catboost.md) |
 | Gaussien Naive Bayes | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 | Multi-Layer Perceptron | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 
@@ -269,6 +274,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | Extra Trees        | SMOTE + GridSearchCV    | 99.55% | 80.00% | 93.33% | 86% | 99.93% |
 | XGBoost            | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
 | LightGBM           | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
+| CatBoost           | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
 
 > Dokumentasi lengkap setiap eksperimen dapat dilihat pada folder **results/**.
 
@@ -300,6 +306,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | 🌿 Extra Trees | [Lihat Dokumentasi](docs/results/Extra%20Trees.md)|
 | ⚡ XGBoost     | [Lihat Dokumentasi](docs/results/XGBoost.md) |
 | 💡 LightGBM    | [Lihat Dokumentasi](docs/results/LightGBM.md) |
+| 🐱 CatBoost    | [Lihat Dokumentasi](docs/results/Catboost.md) |
 
 ---
 
@@ -307,7 +314,6 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 
 Repository ini akan terus dikembangkan dengan menambahkan beberapa algoritma Machine Learning lainnya.
 
-- [ ] CatBoost
 - [ ] Gaussien Naive Bayes
 - [ ] Multi-Layer Perceptron
 
