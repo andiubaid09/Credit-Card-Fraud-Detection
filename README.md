@@ -280,7 +280,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | XGBoost            | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
 | LightGBM           | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
 | CatBoost           | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
-| Gaussien Naive Bayes | Baseline              | 98.05% | 42.11% | 80%   | 55%  | 98.64% |
+| Gaussien Naive Bayes | Baseline              | 98.05% | 42.11% | 80%   | 55.18%  | 98.64% |
 
 > Dokumentasi lengkap setiap eksperimen dapat dilihat pada folder **results/**.
 
