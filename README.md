@@ -260,7 +260,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | XGBoost | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/XGBoost.md) |
 | LightBGM | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/LightGBM.md) |
 | CatBoost | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Catboost.md) |
-| Gaussien Naive Bayes | ✅ | N/A | ✅ | ✅ | [Lihat Dokumentasi](docs/results/Gaussien_Naive_Bayes.md) |
+| Gaussien Naive Bayes | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Gaussien_Naive_Bayes.md) |
 | Multi-Layer Perceptron | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
 
 ---
