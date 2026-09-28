@@ -106,6 +106,7 @@ Credit-Card-Fraud-Detection/
 |           ├── cm K-Nearest Neighbor.png
 |           ├── cm LightGBM.png
 |           ├── cm Logistic Regression.png
+|           ├── cm Multi-Layer Perceptron.png
 |           ├── cm Random Forest.png
 |           ├── cm Support Vector Machine.png
 |           └── cm XGBoost.png
@@ -119,6 +120,7 @@ Credit-Card-Fraud-Detection/
 |           ├── Top Feature K-Nearest Neighbor.png
 |           ├── Top Feature LightGBM.png
 |           ├── Top Feature Logistic Regression.png
+|           ├── Top Feature Multi-Layer Perceptron.png
 |           ├── Top Feature Random Forest.png
 |           ├── Top Feature Support Vector Machine.png
 |           └── Top Feature XGBoost.png
@@ -136,6 +138,7 @@ Credit-Card-Fraud-Detection/
 |       ├── LightGBM.md
 |       ├── Logistic_Regression.md
 |       ├── methodolgy.md
+|       ├── Multi-Layer Perceptron.md
 |       ├── Random_Forest.md
 |       ├── Support_Vector_Machine.md
 |       └── XGBoost.md
@@ -150,6 +153,7 @@ Credit-Card-Fraud-Detection/
 │   ├── K-Nearest_Neighbor.joblib
 |   ├── LightGBM_Model.joblib
 │   ├── Logistic_Regression_Model.joblib
+|   ├── Multi-Layer Perceptron.joblib
 │   ├── Random_Forest_Model.joblib
 │   ├── Support_Vector_Machine.joblib
 |   └── XGBoost_model.joblib
@@ -166,7 +170,8 @@ Credit-Card-Fraud-Detection/
 |   ├── 09_XGBoost_CCFD.ipynb
 |   ├── 10_LightGBM_CCFD.ipynb
 |   ├── 11_CatBoost_CCFD.ipynb
-|   └── 12_Gaussien_Naive_Bayes_CCFD.ipynb
+|   ├── 12_Gaussien_Naive_Bayes_CCFD.ipynb
+|   └── 13_Multi_Layer_Perceptron_CCFD.ipynb  
 │
 ├── requirements.txt
 ├── README.md
@@ -261,7 +266,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | LightBGM | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/LightGBM.md) |
 | CatBoost | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Catboost.md) |
 | Gaussien Naive Bayes | ✅ | N/A | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Gaussien_Naive_Bayes.md) |
-| Multi-Layer Perceptron | ⏳ | ⏳ | ⏳ | ⏳ | Coming Soon |
+| Multi-Layer Perceptron | ✅ | ✅ | ✅ | ✅ | 📄 [Lihat Dokumentasi](docs/results/Multi-Layer_Perceptron.md) |
 
 ---
 
@@ -281,6 +286,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | LightGBM           | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
 | CatBoost           | Baseline + GridSearchCV | 100%   | 100%   | 100%  | 100% | 100% |
 | Gaussien Naive Bayes | Baseline              | 98.05% | 42.11% | 80%   | 55.18%  | 98.64% |
+| Multi-Layer Perceptron | Baseline + KerasTuner| 99.60% | 86.67% | 86.67% | 86.67| 99.92% |
 
 > Dokumentasi lengkap setiap eksperimen dapat dilihat pada folder **results/**.
 
@@ -314,6 +320,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 | 💡 LightGBM    | [Lihat Dokumentasi](docs/results/LightGBM.md) |
 | 🐱 CatBoost    | [Lihat Dokumentasi](docs/results/Catboost.md) |
 | 🔔 Gaussien Naive Bayes | [Lihat Dokumentasi](docs/results/Gaussien_Naive_Bayes.md) |
+| 🧠 Multi-Layer Perceptron | [Lihat Dokumentasi](docs/results/Multi-Layer_Perceptron.md) |
 
 ---
 
@@ -321,7 +328,7 @@ Karena dataset memiliki distribusi kelas yang tidak seimbang, dilakukan tiga pen
 
 Repository ini akan terus dikembangkan dengan menambahkan beberapa algoritma Machine Learning lainnya.
 
-- [ ] Multi-Layer Perceptron
+-  FINISH
 
 ---
 
